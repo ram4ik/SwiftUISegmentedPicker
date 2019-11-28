@@ -9,8 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selected = 0
     var body: some View {
-        Text("Hello World")
+        NavigationView {
+            List {
+                HStack {
+                    Picker(selection: $selected, label: Text("")) {
+                        Text("Hola").tag(0)
+                        Text("Hello").tag(1)
+                        Text("Hallo").tag(2)
+                        Text("Hi").tag(3)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+            }
+        }.navigationBarTitle("Segmented")
     }
 }
 
